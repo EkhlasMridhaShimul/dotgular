@@ -1,0 +1,12 @@
+<div class="item_list">
+  <div class="iput_field">
+    <h4>{{ note.title }}</h4>
+    <hr />
+    <p>{{ note.post }}</p>
+  </div>
+  <app-edit-item
+    [note]="note"
+    (deletedPost)="deletedName($event)"
+    (changedPost)="changingPost($event)"
+  ></app-edit-item>
+</div>

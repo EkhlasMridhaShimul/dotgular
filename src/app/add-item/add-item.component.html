@@ -1,0 +1,7 @@
+<div class="add_field">
+  <input type="text" placeholder="title" #itemName />
+  <input type="text" placeholder="write your post" #itemType />
+  <button (click)="addItem(itemName.value, itemType.value)">
+    Create Note
+  </button>
+</div>

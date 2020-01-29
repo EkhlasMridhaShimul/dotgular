@@ -1,0 +1,50 @@
+.infostyle {
+  color: white;
+  font-style: italic;
+  background-color: black;
+}
+
+
+.pagecontroller {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.paginated {
+  padding: 0px;
+}
+
+.indexstyle {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  background-color: aqua;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  color: red;
+  position: absolute;
+}
+
+.indexstyle:hover {
+  background-color: brown;
+  color: white;
+}
+
+.counterstyle {
+  color: red;
+}
+
+.titlehint {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+button {
+  background-color: brown;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+  border-width: 0px;
+  color: white;
+  width: 100px;
+}
