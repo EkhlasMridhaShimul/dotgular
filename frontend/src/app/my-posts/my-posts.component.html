@@ -1,0 +1,27 @@
+<div>
+  <h5>My Notes</h5>
+  <hr />
+  <p class="titlehint">Add Your Note Here</p>
+  <p class="infostyle">{{ alertDialogue }}</p>
+  <p class="counterstyle">Notes: {{ counter }}</p>
+
+  <app-add-item (addedItem)="itemAdded($event)"> </app-add-item>
+
+  <app-item-list
+    *ngFor="let note of noteList"
+    [note]="note"
+    (deletedPost)="deleted($event)"
+    (changedPost)="postChanged($event)"
+    class="centerallign"
+  ></app-item-list>
+
+  <div class="pagecontroller">
+    <button (click)="previousPage()">Previous</button>
+    <div *ngFor="let page of pageNumbers" class="paginated">
+      <button class="indexstyle" (click)="getIndexedPost(page)">
+        {{ page }}
+      </button>
+    </div>
+    <button (click)="nextPage()">Next</button>
+  </div>
+</div>

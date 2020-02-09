@@ -1,0 +1,33 @@
+.main_body {
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+.header_body {
+  color: white;
+  padding: 5px;
+  background-color: brown;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: black;
+}
+
+.mylinks {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+a {
+  margin: 5px;
+}
