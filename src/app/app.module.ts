@@ -11,6 +11,8 @@ import { MyInfoComponent } from "./my-info/my-info.component";
 import { MyPostsComponent } from "./my-posts/my-posts.component";
 import { EditItemComponent } from "./item-list/edit-item/edit-item.component";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,14 @@ import { HttpClientModule } from "@angular/common/http";
     MyPostsComponent,
     EditItemComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule
+  ],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

@@ -8,7 +8,7 @@
   <app-add-item (addedItem)="itemAdded($event)"> </app-add-item>
 
   <app-item-list
-    *ngFor="let note of notes"
+    *ngFor="let note of noteList"
     [note]="note"
     (deletedPost)="deleted($event)"
     (changedPost)="postChanged($event)"

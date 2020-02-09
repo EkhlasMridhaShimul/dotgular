@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { DataService } from "../data.service";
 import { PostModel } from "../post.model";
+import { ResModel } from "../response.model";
 
 @Component({
   selector: "app-my-posts",
@@ -8,35 +9,42 @@ import { PostModel } from "../post.model";
   styleUrls: ["./my-posts.component.css"]
 })
 export class MyPostsComponent implements OnInit {
-  private notes: PostModel[] = [];
+  private notes: ResModel;
 
   alertDialogue: string = "";
   counter: Number;
   private currentPage: number = 1;
   pageNumbers: number[] = [];
 
+  pageCreated: boolean = true;
+  private noteList: PostModel[];
+
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.dataService.getPosts(this.currentPage, 3).subscribe(res => {
-      this.notes = res;
-      this.getNoteCount();
-      this.pageNumbers = this.dataService.pageNumbers;
+      if (res) {
+        this.notes = res;
+        this.noteList = this.notes.result;
+        this.getNoteCount();
+        this.pageNumbers = this.dataService.pageNumbers;
+      }
     });
   }
 
   getNoteCount() {
-    this.counter = this.notes.length;
+    this.counter = this.noteList.length;
   }
 
   deleted(info: PostModel) {
     this.alertDialogue = info.title + " deleted";
-    this.notes.splice(
-      this.notes.findIndex(item => item.id === info.id),
+    this.noteList.splice(
+      this.noteList.findIndex(item => item.id === info.id),
       1
     );
     this.dataService.getPosts(this.currentPage, 3).subscribe(res => {
       this.notes = res;
+      this.noteList = res.result;
       this.getNoteCount();
     });
   }
@@ -44,18 +52,19 @@ export class MyPostsComponent implements OnInit {
   itemAdded(info: PostModel) {
     this.getNoteCount();
     this.alertDialogue = info.title + " added";
-    if (this.notes.length < 3) {
-      this.notes.push(info);
+    if (this.noteList.length < 3) {
+      this.notes.result.push(info);
     }
     this.dataService.getPosts(this.currentPage, 3).subscribe(res => {
       this.notes = res;
+      this.noteList = res.result;
       this.getNoteCount();
     });
   }
 
   postChanged(info: PostModel) {
-    let data = this.notes.findIndex(item => item.id === info.id);
-    this.notes[data].post = info.post;
+    let data = this.noteList.findIndex(item => item.id === info.id);
+    this.noteList[data].post = info.post;
     this.alertDialogue = info.title + " changed";
   }
 
@@ -63,8 +72,8 @@ export class MyPostsComponent implements OnInit {
     if (this.currentPage < this.dataService.totalPage) {
       this.currentPage += 1;
       this.dataService.getPosts(this.currentPage, 3).subscribe(res => {
-        if (res.length != 0) {
-          this.notes = res;
+        if (res.result.length != 0) {
+          this.noteList = res.result;
           this.getNoteCount();
         }
       });
@@ -75,7 +84,7 @@ export class MyPostsComponent implements OnInit {
     if (this.currentPage > 1) {
       this.currentPage -= 1;
       this.dataService.getPosts(this.currentPage, 3).subscribe(res => {
-        this.notes = res;
+        this.noteList = res.result;
         this.getNoteCount();
       });
     }
@@ -83,7 +92,8 @@ export class MyPostsComponent implements OnInit {
 
   getIndexedPost(pageIndex: number) {
     this.dataService.getPosts(pageIndex, 3).subscribe(res => {
-      this.notes = res;
+      this.noteList = res.result;
+      this.currentPage = pageIndex;
     });
   }
 }

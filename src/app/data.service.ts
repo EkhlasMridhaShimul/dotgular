@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { PostModel } from "./post.model";
+import { ResModel } from "./response.model";
 
 @Injectable({
   providedIn: "root"
@@ -14,22 +15,18 @@ export class DataService {
 
   getPosts(pageNumber: number, size: number) {
     return this.http
-      .get(
-        `http://localhost:55742/api/notes?pageNumber=${pageNumber}&pageSize=${size}`,
-        { observe: "response" }
+      .get<ResModel>(
+        `http://localhost:55742/api/notes?pageNumber=${pageNumber}&pageSize=${size}`
       )
       .pipe(
         map(response => {
-          const responseData: PostModel[] = [];
-          var a = response.headers.get("x-pagecount");
-          this.totalPage = parseInt(a);
+          this.pageNumbers = [];
+          let responseData: ResModel;
+          responseData = response;
+          this.totalPage = responseData.totalnotes;
 
-          for (var i = 0; i < this.totalPage; ++i) {
+          for (var i = 0; i < responseData.totalnotes; ++i) {
             this.pageNumbers.push(i + 1);
-          }
-
-          for (const value in response.body) {
-            responseData.push({ ...response.body[value] });
           }
 
           return responseData;
