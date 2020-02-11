@@ -9,8 +9,8 @@
 
 # dependencies
 /node_modules
-.vs
 
+Notesb/.vs/
 node_modules
 
 # profiling files
