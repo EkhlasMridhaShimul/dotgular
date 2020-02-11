@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Notesb.Models;
 using Notesb.Services;
@@ -21,9 +20,9 @@ namespace Notesb.Controllers
         // GET: api/Default
         [HttpGet]
         [Obsolete]
-        public ResponseModel Get([FromQuery]PageParameters pageParameters)
+        public ResponseModel<Notes> Get([FromQuery]PageParameters pageParameters)
         {
-            PagedData pagedData = _notesService.Get(pageParameters);
+            PagedData<Notes> pagedData = _notesService.Get(pageParameters);
 
             return pagedData.responseModel;
         }

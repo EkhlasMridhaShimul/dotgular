@@ -6,12 +6,10 @@ using MongoDB.Driver;
 
 namespace Notesb.Pagination
 {
-    public class PagedData
+    public class PagedData<T>
     {
-        private List<Notes> notes;
-
-        public ResponseModel responseModel = new ResponseModel();
-        public PagedData(List<Notes> notes,int totalPages,int currentPage)
+        public ResponseModel<T> responseModel = new ResponseModel<T>();
+        public PagedData(List<T> notes,int totalPages,int currentPage)
         {
             this.responseModel.Result = notes;
             this.responseModel.totalnotes = totalPages;
@@ -19,15 +17,15 @@ namespace Notesb.Pagination
         }
 
         [Obsolete]
-        public static PagedData GetPagedData(IMongoCollection<Notes> notes,int pageNumber,int pageSize)
+        public static PagedData<T> GetPagedData(IMongoCollection<T> notes,int pageNumber,int pageSize)
         {
-            List<Notes> data = notes.Find(notes => true).Skip((pageNumber - 1) * pageSize).Limit(pageSize).ToList();
+            List<T> data = notes.Find(notes => true).Skip((pageNumber - 1) * pageSize).Limit(pageSize).ToList();
 
             var count = notes.Count(notes=>true);         
 
             int totalPageCount =(int) Math.Ceiling(count /(double) pageSize);
 
-            PagedData pagedData = new PagedData(data, totalPageCount,pageNumber);
+            PagedData<T> pagedData = new PagedData<T>(data, totalPageCount,pageNumber);
 
             return pagedData;
         }

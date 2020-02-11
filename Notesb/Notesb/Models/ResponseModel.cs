@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Notesb.Models
 {
-    public class ResponseModel
+    public class ResponseModel<T>
     {
-        public List<Notes> Result { get; set; }
+        public List<T> Result { get; set; }
 
         public int totalnotes { get; set; }
 

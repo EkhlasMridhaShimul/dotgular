@@ -20,9 +20,9 @@ namespace Notesb.Services
         }
 
         [Obsolete]
-        public PagedData Get(PageParameters pageParameters)
+        public PagedData<Notes> Get(PageParameters pageParameters)
         {
-            return PagedData.GetPagedData(_notes, pageParameters.PageNumber, pageParameters.PageSize);
+            return PagedData<Notes>.GetPagedData(_notes, pageParameters.PageNumber, pageParameters.PageSize);
         }
 
         public Notes Get(string id) => _notes.Find(note => note.Id == id).FirstOrDefault();
