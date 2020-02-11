@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Notesb.Models;
 using Notesb.Services;
+using Notesb.Pagination;
 
 namespace Notesb.Controllers
 {
@@ -19,9 +20,11 @@ namespace Notesb.Controllers
 
         // GET: api/User
         [HttpGet]
-        public ActionResult<List<UserModel>> Get()
+        public ResponseModel<UserModel> Get([FromQuery]PageParameters pageParameters)
         {
-            return _userDataService.Get();
+            PagedData<UserModel> pagedData = _userDataService.Get(pageParameters);
+
+            return pagedData.responseModel;
         }
 
         // GET: api/User/5

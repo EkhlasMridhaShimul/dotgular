@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MongoDB.Driver;
 using Notesb.Models;
+using Notesb.Pagination;
 
 namespace Notesb.Services
 {
@@ -19,10 +21,10 @@ namespace Notesb.Services
             _user.InsertOne(userModel);
             return userModel;
         }
-
-        public List<UserModel> Get()
+        [Obsolete]
+        public PagedData<UserModel> Get(PageParameters pageParameters)
         {
-            return _user.Find(user => true).ToList();
+            return PagedData<UserModel>.GetPagedData(_user, pageParameters.PageNumber, pageParameters.PageSize);
         }
 
         public UserModel Get(string id)
@@ -44,7 +46,7 @@ namespace Notesb.Services
     public interface IUserDataService
     {
         public UserModel Create(UserModel userModel);
-        public List<UserModel> Get();
+        public PagedData<UserModel> Get(PageParameters pageParameters);
         public UserModel Get(string id);
         public void Update(UserModel userModel);
         public void Delete(string id);
