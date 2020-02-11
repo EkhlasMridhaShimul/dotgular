@@ -26,7 +26,9 @@ namespace Notesb
         {
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
             services.AddSingleton<IDatabaseSettings>(noteDatabase => noteDatabase.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+            services.AddSingleton<IMyNoteBookDatabase, MyNoteBookDatabase>();
             services.AddSingleton<NotesService>();
+            services.AddSingleton<UserDataService>();
             services.AddControllers();
 
             services.AddCors(options =>

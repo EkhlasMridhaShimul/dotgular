@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ekhlas.mridha\\source\\repos\\Notesb\\Notesb\\Notesb.csproj": {}
+    "C:\\Users\\ekhlas.mridha\\Documents\\ang\\dotgular\\Notesb\\Notesb\\Notesb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ekhlas.mridha\\source\\repos\\Notesb\\Notesb\\Notesb.csproj": {
+    "C:\\Users\\ekhlas.mridha\\Documents\\ang\\dotgular\\Notesb\\Notesb\\Notesb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ekhlas.mridha\\source\\repos\\Notesb\\Notesb\\Notesb.csproj",
+        "projectUniqueName": "C:\\Users\\ekhlas.mridha\\Documents\\ang\\dotgular\\Notesb\\Notesb\\Notesb.csproj",
         "projectName": "Notesb",
-        "projectPath": "C:\\Users\\ekhlas.mridha\\source\\repos\\Notesb\\Notesb\\Notesb.csproj",
+        "projectPath": "C:\\Users\\ekhlas.mridha\\Documents\\ang\\dotgular\\Notesb\\Notesb\\Notesb.csproj",
         "packagesPath": "C:\\Users\\ekhlas.mridha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ekhlas.mridha\\source\\repos\\Notesb\\Notesb\\obj\\",
+        "outputPath": "C:\\Users\\ekhlas.mridha\\Documents\\ang\\dotgular\\Notesb\\Notesb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ekhlas.mridha\\AppData\\Roaming\\NuGet\\NuGet.Config",
