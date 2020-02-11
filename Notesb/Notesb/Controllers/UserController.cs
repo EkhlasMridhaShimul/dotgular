@@ -32,7 +32,14 @@ namespace Notesb.Controllers
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<UserModel> Get(string id)
         {
-            return _userDataService.Get(id);
+            var user = _userDataService.Get(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
         }
 
         // POST: api/User
@@ -59,9 +66,15 @@ namespace Notesb.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public ActionResult<UserModel> Delete(string id)
         {
+            var user = _userDataService.Get(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
             _userDataService.Delete(id);
+            return user;
         }
     }
 }
