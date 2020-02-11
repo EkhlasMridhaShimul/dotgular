@@ -7,7 +7,7 @@ using Notesb.Pagination;
 
 namespace Notesb.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/notes")]
     [ApiController]
     public class NotesController : ControllerBase
     {

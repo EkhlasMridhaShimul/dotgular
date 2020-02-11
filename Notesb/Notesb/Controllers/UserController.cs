@@ -9,13 +9,13 @@ using Notesb.Services;
 
 namespace Notesb.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserDataService _userDataService;
+        private readonly IUserDataService _userDataService;
 
-        public UserController(UserDataService userDataService)
+        public UserController(IUserDataService userDataService)
         {
             _userDataService = userDataService;
         }
@@ -23,16 +23,16 @@ namespace Notesb.Controllers
 
         // GET: api/User
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<List<UserModel>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _userDataService.Get();
         }
 
         // GET: api/User/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public ActionResult<UserModel> Get(string id)
         {
-            return "value";
+            return _userDataService.Get(id);
         }
 
         // POST: api/User
@@ -43,15 +43,25 @@ namespace Notesb.Controllers
         }
 
         // PUT: api/User/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public ActionResult<UserModel> Put(UserModel userModel)
         {
+            var user = _userDataService.Get(userModel.Id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _userDataService.Update(userModel);
+            return userModel;
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            _userDataService.Delete(id);
         }
     }
 }
