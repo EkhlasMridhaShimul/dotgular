@@ -12,16 +12,16 @@ namespace Notesb.Pagination
         public PagedData(List<T> notes,int totalPages,int currentPage)
         {
             this.responseModel.Result = notes;
-            this.responseModel.totalnotes = totalPages;
+            this.responseModel.totalPages = totalPages;
             this.responseModel.currentPage = currentPage;
         }
 
         [Obsolete]
-        public static PagedData<T> GetPagedData(IMongoCollection<T> notes,int pageNumber,int pageSize)
+        public static PagedData<T> GetPagedData(IMongoCollection<T> docs,int pageNumber,int pageSize)
         {
-            List<T> data = notes.Find(notes => true).Skip((pageNumber - 1) * pageSize).Limit(pageSize).ToList();
+            List<T> data = docs.Find(docs => true).Skip((pageNumber - 1) * pageSize).Limit(pageSize).ToList();
 
-            var count = notes.Count(notes=>true);         
+            var count = docs.Count(docs => true);         
 
             int totalPageCount =(int) Math.Ceiling(count /(double) pageSize);
 

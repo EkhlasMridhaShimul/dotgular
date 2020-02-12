@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/notes?pageNumber=2&pageSize=5",
+      "launchUrl": "api/user?pageNumber=1&pageSize=4",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "Staging": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/notes?pageNumber=2&pageSize=5",
+      "launchUrl": "api/user?pageNumber=1&pageSize=4",
       "applicationUrl": "https://localhost:5621;http://localhost:5620",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Staging"
