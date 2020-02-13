@@ -9,12 +9,14 @@
 
 # dependencies
 /node_modules
+.vs
 
 Notesb/Notesb/obj/
 Notesb/Notesb/bin/
 obj/
 bin/
 Notesb/.vs/
+
 node_modules
 
 # profiling files
