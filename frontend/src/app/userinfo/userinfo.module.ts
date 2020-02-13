@@ -5,10 +5,17 @@ import { MatTableModule } from "@angular/material/table";
 import { HttpClientModule } from "@angular/common/http";
 import { UserserviceService } from "./userservice.service";
 import { UserRoutingModule } from "./user-routing.module";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   declarations: [UserdataComponent],
-  imports: [CommonModule, UserRoutingModule, MatTableModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    MatTableModule,
+    HttpClientModule,
+    MatPaginatorModule
+  ],
   providers: [UserserviceService],
   exports: [UserdataComponent]
 })
