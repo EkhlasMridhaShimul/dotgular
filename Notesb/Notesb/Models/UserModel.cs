@@ -14,11 +14,5 @@ namespace Notesb.Models
 
         [BsonElement("email")]
         public string email { get; set; }
-
-        [BsonElement("userAge")]
-        public int userAge { get; set; }
-
-        [BsonElement("gender")]
-        public string gender { get; set; }
     }
 }

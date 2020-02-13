@@ -9,11 +9,13 @@ namespace Notesb.Pagination
     public class PagedData<T>
     {
         public ResponseModel<T> responseModel = new ResponseModel<T>();
-        public PagedData(List<T> notes,int totalPages,int currentPage)
+        public PagedData(List<T> notes,int totalPages,int currentPage,bool hasNext,bool hasPrevious)
         {
             this.responseModel.Result = notes;
-            this.responseModel.totalData = totalPages;
+            this.responseModel.totalPages = totalPages;
             this.responseModel.currentPage = currentPage;
+            this.responseModel.hasNextPage = hasNext;
+            this.responseModel.hasPreviousPage = hasPrevious;
         }
 
         [Obsolete]
@@ -25,7 +27,10 @@ namespace Notesb.Pagination
 
             int totalPageCount =(int) Math.Ceiling(count /(double) pageSize);
 
-            PagedData<T> pagedData = new PagedData<T>(data, count,pageNumber);
+            bool hasNext = pageNumber < totalPageCount;
+            bool hasPrevious = pageNumber > 1;
+
+            PagedData<T> pagedData = new PagedData<T>(data, totalPageCount,pageNumber,hasNext,hasPrevious);
 
             return pagedData;
         }

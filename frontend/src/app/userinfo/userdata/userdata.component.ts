@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { UserserviceService } from "../userservice.service";
 import { ResModel } from "src/app/response.model";
 import { UserModel } from "./user.model";
-import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
@@ -13,10 +12,8 @@ import { MatTableDataSource } from "@angular/material/table";
 export class UserdataComponent implements OnInit {
   pagedUserData: ResModel<UserModel>;
   users: MatTableDataSource<UserModel>;
-  displayedColumns: string[] = ["username", "email", "gender", "age"];
+  displayedColumns: string[] = ["username", "email"];
   totalData: number;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private userService: UserserviceService) {}
 
@@ -24,9 +21,11 @@ export class UserdataComponent implements OnInit {
     this.userService.getUsers(1, 2).subscribe(res => {
       this.pagedUserData = res;
       this.users = new MatTableDataSource(this.pagedUserData.result);
-      console.log(this.users);
-      this.users.paginator = this.paginator;
-      this.totalData = this.pagedUserData.totalnotes;
+      this.totalData = this.pagedUserData.totalPages;
     });
+  }
+
+  takeId(row) {
+    console.log(row.data);
   }
 }

@@ -21,15 +21,13 @@ export class DataService {
       .pipe(
         map(response => {
           this.pageNumbers = [];
-          let responseData: ResModel<PostModel>;
-          responseData = response;
-          this.totalPage = responseData.totalnotes;
+          this.totalPage = response.totalPages;
 
-          for (var i = 0; i < responseData.totalnotes; ++i) {
+          for (var i = 0; i < response.totalPages; ++i) {
             this.pageNumbers.push(i + 1);
           }
 
-          return responseData;
+          return response;
         })
       );
   }

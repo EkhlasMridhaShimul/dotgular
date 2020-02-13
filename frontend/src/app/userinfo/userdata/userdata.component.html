@@ -10,19 +10,11 @@
       <td mat-cell *matCellDef="let element">{{ element.email }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="age">
-      <th mat-header-cell *matHeaderCellDef id="head-title">Age</th>
-      <td mat-cell *matCellDef="let element">{{ element.userAge }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="gender">
-      <th mat-header-cell *matHeaderCellDef id="head-title">Gender</th>
-      <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
-    </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr
+      (click)="takeId(row)"
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
   </table>
-
-  <mat-paginator [length]="totalData" showFirstLastButton></mat-paginator>
 </div>
