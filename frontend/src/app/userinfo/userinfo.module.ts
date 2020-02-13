@@ -2,20 +2,21 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { UserdataComponent } from "./userdata/userdata.component";
 import { AppRoutingModule } from "../app-routing.module";
-import { UserTableComponent } from "./user-table/user-table.component";
 import { MatTableModule } from "@angular/material/table";
+import { HttpClientModule } from "@angular/common/http";
+import { UserserviceService } from "./userservice.service";
 import { MatPaginatorModule } from "@angular/material/paginator";
-import { MatSortModule } from "@angular/material/sort";
 
 @NgModule({
-  declarations: [UserdataComponent, UserTableComponent],
+  declarations: [UserdataComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
     MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
-  exports: [UserTableComponent]
+  providers: [UserserviceService],
+  exports: [UserdataComponent]
 })
 export class UserinfoModule {}

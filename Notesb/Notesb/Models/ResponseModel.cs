@@ -6,7 +6,7 @@ namespace Notesb.Models
     {
         public List<T> Result { get; set; }
 
-        public int totalPages { get; set; }
+        public int totalData { get; set; }
 
         public int currentPage { get; set; }
     }

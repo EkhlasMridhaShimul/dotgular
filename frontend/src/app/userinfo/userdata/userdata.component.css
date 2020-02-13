@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+#head-title {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.tbstyle {
+  padding: 50px;
+}

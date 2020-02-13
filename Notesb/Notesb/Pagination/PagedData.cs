@@ -12,7 +12,7 @@ namespace Notesb.Pagination
         public PagedData(List<T> notes,int totalPages,int currentPage)
         {
             this.responseModel.Result = notes;
-            this.responseModel.totalPages = totalPages;
+            this.responseModel.totalData = totalPages;
             this.responseModel.currentPage = currentPage;
         }
 
@@ -21,11 +21,11 @@ namespace Notesb.Pagination
         {
             List<T> data = docs.Find(docs => true).Skip((pageNumber - 1) * pageSize).Limit(pageSize).ToList();
 
-            var count = docs.Count(docs => true);         
+            int count =(int) docs.Count(docs => true);         
 
             int totalPageCount =(int) Math.Ceiling(count /(double) pageSize);
 
-            PagedData<T> pagedData = new PagedData<T>(data, totalPageCount,pageNumber);
+            PagedData<T> pagedData = new PagedData<T>(data, count,pageNumber);
 
             return pagedData;
         }

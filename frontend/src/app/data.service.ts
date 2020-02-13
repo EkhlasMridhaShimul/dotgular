@@ -15,13 +15,13 @@ export class DataService {
 
   getPosts(pageNumber: number, size: number) {
     return this.http
-      .get<ResModel>(
+      .get<ResModel<PostModel>>(
         `http://localhost:55742/api/notes?pageNumber=${pageNumber}&pageSize=${size}`
       )
       .pipe(
         map(response => {
           this.pageNumbers = [];
-          let responseData: ResModel;
+          let responseData: ResModel<PostModel>;
           responseData = response;
           this.totalPage = responseData.totalnotes;
 

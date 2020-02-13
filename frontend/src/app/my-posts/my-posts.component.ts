@@ -9,7 +9,7 @@ import { ResModel } from "../response.model";
   styleUrls: ["./my-posts.component.css"]
 })
 export class MyPostsComponent implements OnInit {
-  private notes: ResModel;
+  private notes: ResModel<PostModel>;
 
   alertDialogue: string = "";
   counter: Number;
@@ -17,7 +17,7 @@ export class MyPostsComponent implements OnInit {
   pageNumbers: number[] = [];
 
   pageCreated: boolean = true;
-  private noteList: PostModel[];
+  public noteList: PostModel[];
 
   constructor(private dataService: DataService) {}
 
