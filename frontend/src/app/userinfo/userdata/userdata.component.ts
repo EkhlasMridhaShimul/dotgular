@@ -26,6 +26,6 @@ export class UserdataComponent implements OnInit {
   }
 
   takeId(row) {
-    console.log(row.data);
+    console.log(row);
   }
 }

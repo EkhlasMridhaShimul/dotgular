@@ -12,7 +12,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
-      (click)="takeId(row)"
+      (click)="takeId($event)"
       mat-row
       *matRowDef="let row; columns: displayedColumns"
     ></tr>

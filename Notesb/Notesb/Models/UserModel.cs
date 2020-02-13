@@ -14,5 +14,8 @@ namespace Notesb.Models
 
         [BsonElement("email")]
         public string email { get; set; }
+
+        [BsonElement("details")]
+        public UserDetail details { get; set; }
     }
 }
