@@ -6,9 +6,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { UserserviceService } from "./userservice.service";
 import { UserRoutingModule } from "./user-routing.module";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
-  declarations: [UserdataComponent],
+  declarations: [UserdataComponent, UserDetailComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

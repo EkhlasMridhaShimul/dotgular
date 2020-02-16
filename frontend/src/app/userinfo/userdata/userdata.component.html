@@ -13,12 +13,15 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr
-        (click)="takeId($event)"
+        (click)="takeToUserDetail(row)"
         mat-row
         *matRowDef="let row; columns: displayedColumns"
       ></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[2, 4]"></mat-paginator>
+    <mat-paginator
+      [pageSizeOptions]="[2, 4]"
+      (page)="getPagedData($event)"
+    ></mat-paginator>
   </div>
 </div>

@@ -30,7 +30,7 @@ namespace Notesb.Pagination
             bool hasNext = pageNumber < totalPageCount;
             bool hasPrevious = pageNumber > 1;
 
-            PagedData<T> pagedData = new PagedData<T>(data, totalPageCount,pageNumber,hasNext,hasPrevious);
+            PagedData<T> pagedData = new PagedData<T>(data, count,pageNumber,hasNext,hasPrevious);
 
             return pagedData;
         }
