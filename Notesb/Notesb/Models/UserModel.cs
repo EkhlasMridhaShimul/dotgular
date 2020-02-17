@@ -5,9 +5,8 @@ namespace Notesb.Models
 {
     public class UserModel
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        [BsonRepresentation(BsonType.Int32)]
+        public int _id { get; set; }
 
         [BsonElement("username")]
         public string userName { get; set; }

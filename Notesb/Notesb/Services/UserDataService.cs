@@ -27,19 +27,19 @@ namespace Notesb.Services
             return PagedData<UserModel>.GetPagedData(_user, pageParameters.PageNumber, pageParameters.PageSize);
         }
 
-        public UserModel Get(string id)
+        public UserModel Get(int id)
         {
-            return _user.Find(user => user.Id == id).FirstOrDefault();
+            return _user.Find(user => user._id == id).FirstOrDefault();
         }
 
         public void Update(UserModel userModel)
         {
-            _user.ReplaceOne(user => user.Id == userModel.Id, userModel);
+            _user.ReplaceOne(user => user._id == userModel._id, userModel);
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
-            _user.DeleteOne(user => user.Id == id);
+            _user.DeleteOne(user => user._id == id);
         }
     }
 
@@ -47,8 +47,8 @@ namespace Notesb.Services
     {
         public UserModel Create(UserModel userModel);
         public PagedData<UserModel> Get(PageParameters pageParameters);
-        public UserModel Get(string id);
+        public UserModel Get(int id);
         public void Update(UserModel userModel);
-        public void Delete(string id);
+        public void Delete(int id);
     }
 }

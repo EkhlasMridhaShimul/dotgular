@@ -28,7 +28,7 @@ namespace Notesb.Controllers
 
         // GET: api/User/5
         [HttpGet("{id}", Name = "Get")]
-        public ActionResult<UserModel> Get(string id)
+        public ActionResult<UserModel> Get(int id)
         {
             var user = _userDataService.Get(id);
 
@@ -51,7 +51,7 @@ namespace Notesb.Controllers
         [HttpPut]
         public ActionResult<UserModel> Put(UserModel userModel)
         {
-            var user = _userDataService.Get(userModel.Id);
+            var user = _userDataService.Get(userModel._id);
 
             if (user == null)
             {
@@ -64,7 +64,7 @@ namespace Notesb.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public ActionResult<UserModel> Delete(string id)
+        public ActionResult<UserModel> Delete(int id)
         {
             var user = _userDataService.Get(id);
             if (user == null)
