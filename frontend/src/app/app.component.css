@@ -6,19 +6,9 @@
 
 .header_body {
   color: white;
-  padding: 5px;
   background-color: brown;
   display: flex;
   justify-content: space-between;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  background-color: black;
 }
 
 .mylinks {
@@ -30,4 +20,28 @@ a:hover {
 
 a {
   margin: 5px;
+}
+
+.home_button{
+  align-content: center;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.navitem{
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.navitem:hover{
+  background-color: black;
+}
+
+.items_nav{
+  display: flex;
+  flex-direction: row;
 }

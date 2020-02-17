@@ -1,18 +1,23 @@
 <div class="tablepadding">
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row">Name</th>
-        <td>{{ name }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Age</th>
-        <td>{{ age }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Gender</th>
-        <td>{{ gender }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <h3>User details</h3>
+  <hr />
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">Name</th>
+          <td>{{ name }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Age</th>
+          <td>{{ age }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Gender</th>
+          <td>{{ gender }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button (click)="goToBack()" class="btn btn-dark">Back to User List</button>
 </div>

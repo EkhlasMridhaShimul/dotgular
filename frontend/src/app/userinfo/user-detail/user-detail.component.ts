@@ -30,4 +30,8 @@ export class UserDetailComponent implements OnInit {
       this.gender = this.userDetail.gender;
     });
   }
+
+  goToBack(): void {
+    history.back();
+  }
 }

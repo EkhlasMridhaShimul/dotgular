@@ -11,3 +11,15 @@ table {
 .tbstyle {
   padding: 50px;
 }
+
+#user_entry{
+  margin: 15px;
+}
+
+tr.mat-row:hover{
+  background-color:#72624d;
+}
+
+
+
+

@@ -1,8 +1,15 @@
 <div class="main_body">
   <div class="header_body">
-    <h3><a routerLink="/">My Notebook</a></h3>
-    <nav>
-      <a routerLink="/">My posts</a> <a routerLink="/userinfo">Users</a>
+    <div class="home_button">
+      <h3><a routerLink="/">My Notebook</a></h3>
+    </div>
+    <nav class="items_nav">
+      <div class="navitem" routerLink="/">
+        <a routerLink="/">My posts</a>
+      </div>
+      <div class="navitem">
+        <a routerLink="/userinfo">Users</a>
+      </div>
     </nav>
   </div>
   <hr />

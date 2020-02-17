@@ -36,7 +36,6 @@ export class UserdataComponent implements OnInit {
 
   takeToUserDetail(row: UserModel<UserDetail>) {
     this.router.navigate(["userinfo", "detail", row._id]);
-    console.log(row);
   }
 
   getPagedData(row2) {
