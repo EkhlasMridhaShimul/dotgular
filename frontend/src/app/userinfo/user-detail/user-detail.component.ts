@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { UserserviceService } from "../userservice.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { ResModel } from "src/app/response.model";
@@ -12,16 +12,25 @@ import { UserDetail } from "../userdata/user-detai.model";
   styleUrls: ["./user-detail.component.css"]
 })
 export class UserDetailComponent implements OnInit {
-  pagedUserData: ResModel<UserModel<UserDetail>>;
+  id: string;
+  userDetail: UserDetail;
+  name: string;
+  age: number;
+  gender: string;
+  displayedColumns: string[] = ["name", "age", "gender"];
 
   constructor(
-    private router: Router,
+    private route: ActivatedRoute,
     private userService: UserserviceService
   ) {}
 
   ngOnInit(): void {
-    this.userService.getUsers(1, 3).subscribe(res => {
-      this.pagedUserData = res;
+    this.id = this.route.snapshot.paramMap.get("id");
+    this.userService.getSingleUser(this.id).subscribe(res => {
+      this.userDetail = res.details;
+      this.name = this.userDetail.firstName + " " + this.userDetail.lastName;
+      this.age = this.userDetail.age;
+      this.gender = this.userDetail.gender;
     });
   }
 }

@@ -14,4 +14,10 @@ export class UserserviceService {
       `http://localhost:55742/api/user?pageNumber=${pageNumber}&pageSize=${pageSize}`
     );
   }
+
+  getSingleUser(id: string) {
+    return this.http.get<UserModel<UserDetail>>(
+      `http://localhost:55742/api/user/${id}`
+    );
+  }
 }

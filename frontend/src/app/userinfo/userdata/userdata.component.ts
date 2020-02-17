@@ -29,13 +29,13 @@ export class UserdataComponent implements OnInit {
     this.userService.getUsers(1, 2).subscribe(res => {
       this.pagedUserData = res;
       this.users = new MatTableDataSource(this.pagedUserData.result);
-      this.paginator.length = res.totalPages;
-      this.totalData = this.pagedUserData.totalPages;
+      this.paginator.length = res.totalDocs;
+      this.totalData = this.pagedUserData.totalDocs;
     });
   }
 
-  takeToUserDetail(row) {
-    this.router.navigate(["userinfo", "detail"], row);
+  takeToUserDetail(row: UserModel<UserDetail>) {
+    this.router.navigate(["userinfo", "detail", row.id]);
   }
 
   getPagedData(row2) {

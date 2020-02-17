@@ -21,9 +21,10 @@ export class DataService {
       .pipe(
         map(response => {
           this.pageNumbers = [];
-          this.totalPage = response.totalPages;
+          let size = response.result.length;
+          this.totalPage = response.totalDocs / size;
 
-          for (var i = 0; i < response.totalPages; ++i) {
+          for (var i = 0; i < this.totalPage; ++i) {
             this.pageNumbers.push(i + 1);
           }
 
