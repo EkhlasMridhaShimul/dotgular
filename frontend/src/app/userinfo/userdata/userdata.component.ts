@@ -38,7 +38,7 @@ export class UserdataComponent implements OnInit {
     this.router.navigate(["userinfo", "detail", row._id]);
   }
 
-  getPagedData(row2) {
+  getPagedData() {
     this.userService
       .getUsers(this.paginator.pageIndex + 1, this.paginator.pageSize)
       .subscribe(res => {

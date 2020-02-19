@@ -53,6 +53,8 @@ namespace Notesb
 
             app.UseCors(MyCorsOrigin);
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
