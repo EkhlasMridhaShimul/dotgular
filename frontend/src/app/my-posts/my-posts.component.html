@@ -7,6 +7,8 @@
 
   <app-add-item (addedItem)="itemAdded($event)"> </app-add-item>
 
+  <mat-spinner>
+    </mat-spinner>
   <app-item-list
     *ngFor="let note of noteList"
     [note]="note"
@@ -14,6 +16,7 @@
     (changedPost)="postChanged($event)"
     class="centerallign"
   ></app-item-list>
+
 
   <div class="pagecontroller">
     <button (click)="previousPage()">Previous</button>

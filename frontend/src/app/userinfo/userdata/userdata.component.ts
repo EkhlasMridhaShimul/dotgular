@@ -27,10 +27,10 @@ export class UserdataComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers(1, 2).subscribe(res => {
-      this.pagedUserData = res;
-      this.users = new MatTableDataSource(this.pagedUserData.result);
+      // this.pagedUserData = res;
+      this.users = new MatTableDataSource(res.result);
       this.paginator.length = res.totalDocs;
-      this.totalData = this.pagedUserData.totalDocs;
+      //this.totalData = this.pagedUserData.totalDocs;
     });
   }
 
@@ -42,8 +42,8 @@ export class UserdataComponent implements OnInit {
     this.userService
       .getUsers(this.paginator.pageIndex + 1, this.paginator.pageSize)
       .subscribe(res => {
-        this.pagedUserData = res;
-        this.users.data = this.pagedUserData.result;
+        //this.pagedUserData = res;
+        this.users.data = res.result;
       });
   }
 }

@@ -18,7 +18,11 @@ table {
 
 tr.mat-row:hover{
   background-color:#72624d;
+  cursor: pointer;
+  color: white !important;
 }
+
+
 
 
 

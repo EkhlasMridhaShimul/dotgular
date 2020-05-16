@@ -10,6 +10,7 @@ import { UserDetailComponent } from "./user-detail/user-detail.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { UserEntryComponent } from './user-entry/user-entry.component';
 
+
 @NgModule({
   declarations: [UserdataComponent, UserDetailComponent, UserEntryComponent],
   imports: [
